@@ -124,10 +124,6 @@
       <Project>{1B1DC2F1-D8E3-88D0-9907-8539EB57F706}</Project>
       <Name>TD3000.Plugins</Name>
     </ProjectReference>
-    <ProjectReference Include="TD3000.csproj">
-      <Project>{2E92755C-CA42-1904-4AD5-458323000A59}</Project>
-      <Name>TD3000</Name>
-    </ProjectReference>
     <ProjectReference Include="TD3000.Editor.Plugins.csproj">
       <Project>{972C13BB-7735-3823-9A9F-603EC0201995}</Project>
       <Name>TD3000.Editor.Plugins</Name>

@@ -84,7 +84,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Collision.cs" />
     <Compile Include="Assets\Scripts\Creep.cs" />
     <Compile Include="Assets\Scripts\Logic.cs" />
     <Compile Include="Assets\Scripts\Redirect.cs" />
