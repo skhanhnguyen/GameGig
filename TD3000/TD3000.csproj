@@ -84,12 +84,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Creep.cs" />
+    <Compile Include="Assets\Scripts\Logic.cs" />
+    <Compile Include="Assets\Scripts\Redirect.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\TutorialInfo.cs" />
     <Compile Include="Assets\_Completed-Assets\Scripts\CompleteCameraController.cs" />
     <Compile Include="Assets\_Completed-Assets\Scripts\CompletePlayerController.cs" />
     <Compile Include="Assets\_Completed-Assets\Scripts\CompleteRotator.cs" />
-    <Compile Include="Assets\_Completed-Assets\Scripts\Creep.cs" />
-    <Compile Include="Assets\_Completed-Assets\Scripts\Logic.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
