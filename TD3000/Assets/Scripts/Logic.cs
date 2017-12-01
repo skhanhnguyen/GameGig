@@ -18,6 +18,7 @@ public class Logic : MonoBehaviour {
     public Text text;
 
     public SpawnList[] waves;
+	public float[] wave_timers;
     int wave_no = 0;
 
     public Transform spawn_pos;
@@ -27,6 +28,7 @@ public class Logic : MonoBehaviour {
     public Transform[] towers;
     public float[] towers_costs;
     public float[] towers_radii;
+
 
     public LayerMask tower_placement_layer;
 
@@ -46,7 +48,7 @@ public class Logic : MonoBehaviour {
         if (wave_no < waves.Length)
         {
 
-            if (Time.time - last_spawn_t > 1)
+			if (Time.time - last_spawn_t > wave_timers[wave_no])
             {
                 SpawnList wave = waves[wave_no];
                 foreach (Transform creep in wave.spawn_list)
