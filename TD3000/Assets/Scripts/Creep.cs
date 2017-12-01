@@ -43,7 +43,15 @@ public class Creep : MonoBehaviour
         {
             dir = other.gameObject.GetComponent<Redirect>().dir;
         }
+    }
 
-
+    public void damage(float d)
+    {
+        life -= d;
+        if (life < 0)
+        {
+            Logic.Instance.EnemyAtBase(-money_cost);
+            Destroy(this.gameObject);
+        }
     }
 }
