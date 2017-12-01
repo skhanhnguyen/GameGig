@@ -1,8 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
+<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TD3000", "TD3000.csproj", "{2E92755C-CA42-1904-4AD5-458323000A59}"
 EndProject
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TD3000.Plugins", "TD3000.Plugins.csproj", "{1B1DC2F1-D8E3-88D0-9907-8539EB57F706}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TD3000", "TD3000.csproj", "{2E92755C-CA42-1904-4AD5-458323000A59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TD3000.Editor.Plugins", "TD3000.Editor.Plugins.csproj", "{972C13BB-7735-3823-9A9F-603EC0201995}"
+EndProject
+>>>>>>> 3677cc95488b7554f6b3e6541a7bfee0f3fb71bc
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TD3000.Editor", "TD3000.Editor.csproj", "{16791897-1C3B-AC77-D0EC-A721A173F7F1}"
 EndProject
 Global
@@ -11,10 +20,24 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+<<<<<<< HEAD
+=======
+		{1B1DC2F1-D8E3-88D0-9907-8539EB57F706}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B1DC2F1-D8E3-88D0-9907-8539EB57F706}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B1DC2F1-D8E3-88D0-9907-8539EB57F706}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B1DC2F1-D8E3-88D0-9907-8539EB57F706}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> 3677cc95488b7554f6b3e6541a7bfee0f3fb71bc
 		{2E92755C-CA42-1904-4AD5-458323000A59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2E92755C-CA42-1904-4AD5-458323000A59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E92755C-CA42-1904-4AD5-458323000A59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E92755C-CA42-1904-4AD5-458323000A59}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
+=======
+		{972C13BB-7735-3823-9A9F-603EC0201995}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{972C13BB-7735-3823-9A9F-603EC0201995}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{972C13BB-7735-3823-9A9F-603EC0201995}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{972C13BB-7735-3823-9A9F-603EC0201995}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> 3677cc95488b7554f6b3e6541a7bfee0f3fb71bc
 		{16791897-1C3B-AC77-D0EC-A721A173F7F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{16791897-1C3B-AC77-D0EC-A721A173F7F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16791897-1C3B-AC77-D0EC-A721A173F7F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
