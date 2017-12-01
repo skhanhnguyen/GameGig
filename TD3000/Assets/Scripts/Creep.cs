@@ -51,7 +51,7 @@ public class Creep : MonoBehaviour
         life -= d;
         if (life < 0)
         {
-            Logic.Instance.EnemyAtBase(-money_cost);
+            Logic.Instance.EnemyAtBase(-money_cost*10);
             Destroy(this.gameObject);
         }
     }

@@ -16,6 +16,9 @@ public class Logic : MonoBehaviour {
     public static Logic Instance{get{return _instance; }}
     public float money;
     public Text text;
+    public Text win;
+
+    bool ready = false;
 
     public SpawnList[] waves;
 	public float[] wave_timers;
@@ -32,6 +35,8 @@ public class Logic : MonoBehaviour {
 
     public LayerMask tower_placement_layer;
 
+    SpriteRenderer cursor_image;
+
     int tower_no = 0;
 
     // Use this for initialization
@@ -40,6 +45,7 @@ public class Logic : MonoBehaviour {
         spawn_vect.x = spawn_pos.position.x;
         spawn_vect.y = spawn_pos.position.y;
         last_spawn_t = Time.time;
+        cursor_image = Placement.Instance.GetComponent<SpriteRenderer>();
         SetText();
     }
 	
@@ -53,7 +59,6 @@ public class Logic : MonoBehaviour {
                 SpawnList wave = waves[wave_no];
                 foreach (Transform creep in wave.spawn_list)
                 {
-
                     Instantiate(creep, spawn_vect + Random.insideUnitCircle, Quaternion.identity);
                 }
                 wave_no += 1;
@@ -61,19 +66,26 @@ public class Logic : MonoBehaviour {
                 SetText();
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        else
         {
-            tower_no -= 1;
+            win.text = "You Won!!!";
+            //won the game!
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Debug.Log("pressed q");
+            tower_no = tower_no - 1;
             if (tower_no < 0)
             {
-                tower_no = towers.Length;
+                tower_no = towers.Length-1;
             }
             SetText();
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetKeyDown(KeyCode.E))
         {
-            tower_no += 1;
+            Debug.Log("pressed e" + tower_no.ToString());
+            tower_no = tower_no + 1;
             if (tower_no == towers.Length)
             {
                 tower_no = 0;
@@ -82,33 +94,55 @@ public class Logic : MonoBehaviour {
         }
         if (Input.GetMouseButtonDown(0))
         {
-            place_tower();
+            cursor_image.sprite = towers[tower_no].GetComponent<SpriteRenderer>().sprite;
+            Placement.Instance.transform.localScale = towers[tower_no].localScale;
+            cursor_image.enabled = true;
+            ready = true;
         }
-        else
+        if (Input.GetMouseButtonDown(1))
         {
-            //won the game!
+            cursor_image.enabled = false;
+            ready = false;
         }
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (ready)
+            {
+                place_tower();
+                cursor_image.enabled = false;
+                ready = false;
+            }
+        }
+
 	}
 
     void place_tower()
     {
         if (towers_costs[tower_no] < money)
         {
+            Debug.Log("pressed");
             Vector3 pz = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            pz.z = 0;
             Vector2 placement_pos;
             placement_pos.x = pz.x;
             placement_pos.y = pz.y;
 
             Collider2D ans = Physics2D.OverlapCircle(placement_pos, towers_radii[tower_no], tower_placement_layer);
-            if (ans != null)
+            if (true)
             {
                 Instantiate(towers[tower_no], pz, Quaternion.identity);
+                money -= towers_costs[tower_no];
+                SetText();
             }
         }
     }
 
     public void EnemyAtBase(float money_cost) {
         money -= money_cost;
+        if (money < 0)
+        {
+            win.text = "You Lost...";
+        }
         SetText();
     }
 

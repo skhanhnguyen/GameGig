@@ -231,6 +231,7 @@
     <Compile Include="Assets\Scripts\Creep.cs" />
     <Compile Include="Assets\Scripts\fireball.cs" />
     <Compile Include="Assets\Scripts\Logic.cs" />
+    <Compile Include="Assets\Scripts\Placement.cs" />
     <Compile Include="Assets\Scripts\Redirect.cs" />
     <Compile Include="Assets\Scripts\tower.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\TutorialInfo.cs" />

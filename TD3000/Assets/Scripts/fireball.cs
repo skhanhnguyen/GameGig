@@ -8,6 +8,7 @@ public class fireball : MonoBehaviour
     public Transform target;
     public float damage;
     public float speed;
+    public float knock_back;
 
     // Use this for initialization
     void Start()
@@ -35,6 +36,8 @@ public class fireball : MonoBehaviour
         {
             Debug.Log("collided");
             Creep creep = other.GetComponent<Creep>();
+            other.GetComponent<Rigidbody2D>().AddForce((creep.transform.position - transform.position).normalized * knock_back);
+            Debug.Log("knock");
             creep.damage(damage);
             Destroy(this.gameObject);
         }
