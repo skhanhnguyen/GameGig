@@ -47,6 +47,7 @@ public class Creep : MonoBehaviour
 
     public void damage(float d)
     {
+        Debug.Log("damage called");
         life -= d;
         if (life < 0)
         {

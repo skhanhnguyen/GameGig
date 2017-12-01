@@ -26,6 +26,9 @@ public class Logic : MonoBehaviour {
 
     public Transform[] towers;
     public float[] towers_costs;
+    public float[] towers_radii;
+
+    public LayerMask tower_placement_layer;
 
     int tower_no = 0;
 
@@ -87,9 +90,19 @@ public class Logic : MonoBehaviour {
 
     void place_tower()
     {
-        //Vector3 pz = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //pz.z = 0;
-        //Instantiate(Tower_no, pz, Quaternion.identity);
+        if (towers_costs[tower_no] < money)
+        {
+            Vector3 pz = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 placement_pos;
+            placement_pos.x = pz.x;
+            placement_pos.y = pz.y;
+
+            Collider2D ans = Physics2D.OverlapCircle(placement_pos, towers_radii[tower_no], tower_placement_layer);
+            if (ans != null)
+            {
+                Instantiate(towers[tower_no], pz, Quaternion.identity);
+            }
+        }
     }
 
     public void EnemyAtBase(float money_cost) {
@@ -100,6 +113,8 @@ public class Logic : MonoBehaviour {
     void SetText()
     {
         //Set the text property of our our countText object to "Count: " followed by the number stored in our count variable.
+        tower_no.ToString();
+
         text.text = "Money: " + money.ToString() + " Wave no:" + wave_no.ToString() + " Tower:" + tower_no.ToString();
     }
 }
